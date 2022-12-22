@@ -1,6 +1,1 @@
 # merge-queue-example
-
-
-
-
-
