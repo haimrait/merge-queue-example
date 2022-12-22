@@ -1,8 +1,25 @@
+defaults:
+  actions:
+    queue:
+      method: squash
+      commit_message_template: |
+        {{ title }} (#{{ number }})
+        {{ body }}
+
+queue_rules:
+  - name: default
+    conditions:
+      - base=main
+      - check-success=Wait for CI
+    batch_size: 5
+    allow_inplace_checks: false
+
 pull_request_rules:
   - name: Automatic merge on approval
     conditions:
       - "#approved-reviews-by>=1"
+      - base=main
     actions:
-      merge:
-        method: squash
-
+      queue:
+        name: default
+        priority: medium
