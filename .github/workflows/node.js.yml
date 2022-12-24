@@ -10,6 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
+  name: Node.js CI
   build:
 
     runs-on: ubuntu-latest
