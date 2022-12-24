@@ -2,7 +2,7 @@ queue_rules:
   - name: default
     conditions:
       - "#approved-reviews-by>=1"
-      - check-success=Wait for CI
+      - check-success=CI
 
 pull_request_rules:
   - name: merge using the merge queue
