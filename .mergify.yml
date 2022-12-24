@@ -9,7 +9,9 @@ pull_request_rules:
     conditions:
       - base=main
       - "#approved-reviews-by>=1"
-      - check-success=^Node.js CI$
+      - check-success=build (14.x)
+      - check-success=build (16.x)
+      - check-success=build (18.x)
     actions:
       queue:
         name: default
