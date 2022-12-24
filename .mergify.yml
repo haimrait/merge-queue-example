@@ -5,3 +5,19 @@ pull_request_rules:
     actions:
       merge:
         method: squash
+
+queue_rules:
+  - name: default
+    conditions:
+      - "#approved-reviews-by>=1"
+      - check-success=CI
+
+pull_request_rules:
+  - name: merge using the merge queue
+    conditions:
+      - base=main
+      - "#approved-reviews-by>=1"
+      - check-success=CI
+    actions:
+      queue:
+        name: default
