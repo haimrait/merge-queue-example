@@ -11,6 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Wait for CI
-      uses: peter-evans/wait-for-status-checks@v3
+      uses: lewagon/wait-on-check-action@v1
       with:
-        require: all
+        check-name: '**'
